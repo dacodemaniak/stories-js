@@ -62,6 +62,12 @@
             <!-- Docking de la SPA (non, non, ça veut dire Single Page Application) -->
             <div app>
                 <!-- Ici, le contenu de l'application finale identifié par l'attribut "app" -->
+                <form id="loginForm" class="form-stacked">
+                    <input type="text" name="loginField" autocomplete="off" class="form-control" placeholder="Votre identifiant">
+                    <input type="password" name="passwordField" autocomplete="off" class="form-control" placeholder="Votre mot de passe">
+
+                    <button type="submit" id="btnLogin" class="btn btn-success" disabled>Connexion</button>
+                </form>
             </div>
 
             <footer>
@@ -73,6 +79,7 @@
         <!-- Premier script Javascript -->
         <script src="./node_modules/jquery/dist/jquery.min.js"></script>
         <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="./src/user/login.class.js"></script>
         <script src="./assets/javascript/main.js"></script>
     </body>
 </html>
