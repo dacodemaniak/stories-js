@@ -55,6 +55,8 @@ class Toast {
         toaster
             .addClass('toast')
             .addClass(this.backgroundClass)
+            .addClass('animated')
+            .addClass('fadeInDownBig')
             .css('width', this.width)
             .css('height', this.height)
             .html('<p>' + this.message + '</p>');
