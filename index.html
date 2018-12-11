@@ -44,11 +44,7 @@
                             Utilisateur
                         </a>
                         <!-- Options du menu utilisateur -->
-                        <div id="userMenuOptions" class="dropdown-menu" aria-labelledby="userMenu">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                        <div id="userMenuOptions" class="dropdown-menu hidden" aria-labelledby="userMenu">
                         </div>
                     </li>
                 </ul>
@@ -62,12 +58,14 @@
             <!-- Docking de la SPA (non, non, ça veut dire Single Page Application) -->
             <div app>
                 <!-- Ici, le contenu de l'application finale identifié par l'attribut "app" -->
-                <form id="loginForm" class="form-stacked">
-                    <input type="text" name="loginField" autocomplete="off" class="form-control" placeholder="Votre identifiant">
-                    <input type="password" name="passwordField" autocomplete="off" class="form-control" placeholder="Votre mot de passe">
+                <div class="row">
+                    <form id="loginForm" class="form-stacked col-md-6 center-block">
+                        <input type="text" name="loginField" autocomplete="off" class="form-control" placeholder="Votre identifiant">
+                        <input type="password" name="passwordField" autocomplete="off" class="form-control" placeholder="Votre mot de passe">
 
-                    <button type="submit" id="btnLogin" class="btn btn-success" disabled>Connexion</button>
-                </form>
+                        <button type="submit" id="btnLogin" class="btn btn-success" disabled>Connexion</button>
+                    </form>
+                </div>
             </div>
 
             <footer>

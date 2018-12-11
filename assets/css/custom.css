@@ -27,3 +27,7 @@
 .toast.warning p {
     background-color: rgba(231, 192, 19, 0.911);
 }
+
+#userMenuOptions.hidden {
+    display: none;
+}

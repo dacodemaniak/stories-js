@@ -49,6 +49,9 @@ class Menu {
             const item = this._makeOption(option);
             item.appendTo(dropdownBlock);
         }
+
+        // En fin de parcours, on affiche le menu
+        dropdownBlock.removeClass('hidden');
     }
 
     _makeOption(option) {
