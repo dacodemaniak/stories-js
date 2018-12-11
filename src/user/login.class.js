@@ -62,6 +62,9 @@ class Login {
                 // Gère l'authentification...
                 if (user.authenticate() === true) {
                     console.log('Oki, tu peux y aller');
+                    // Instancie le menu...
+                    const menu = new Menu();
+                    menu.setUser(user);
                 } else {
                     console.log('ko, t\'as pas le droit !');
                     // Efface les champs et désactive le bouton
