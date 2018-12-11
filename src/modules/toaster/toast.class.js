@@ -25,6 +25,18 @@ class Toast {
         } else {
             this.message = params.message;
         }
+
+        if (!params.hasOwnProperty('height')) {
+            this.height = params.height + 'px';
+        } else {
+            this.height = '100px';
+        }
+
+        if (!params.hasOwnProperty('width')) {
+            this.width = params.width + 'px';
+        } else {
+            this.width = '200px';
+        }
     }
 
     setBackground(cssClass) {
@@ -43,7 +55,9 @@ class Toast {
         toaster
             .addClass('toast')
             .addClass(this.backgroundClass)
-            .html(this.message);
+            .css('width', this.width)
+            .css('height', this.height)
+            .html('<p>' + this.message + '</p>');
         
         // Ajoute le toaster au document lui-même
         toaster.appendTo($('body'));

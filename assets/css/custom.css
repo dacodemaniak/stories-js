@@ -10,8 +10,20 @@
     border-radius: 5px;
 }
 
-.toast.danger {
-    background-color: rgba(231, 19, 19, 0.8);
+.toast.warning {
     color: #fff;
     border: solid 1px #fff;
+}
+.toast.danger {
+    /*background-color: rgba(231, 19, 19, 0.8);*/
+    color: #fff;
+    border: solid 1px #fff;
+}
+
+.toast.danger p {
+    background-color: rgba(231, 19, 19, 0.8);
+}
+
+.toast.warning p {
+    background-color: rgba(231, 192, 19, 0.911);
 }
