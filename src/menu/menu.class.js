@@ -76,7 +76,7 @@ class Menu {
     _activate() {
         for (let option of this.options) {
             const item = $('[title="' + option.title + '"]');
-            console.log('Item : ' + item.attr('title'));
+            
             if (option.active === 'always') {
                 item.removeClass('disabled');
             } else if (option.active === 'isAdmin' && this.user.group === 'Administrateur') {

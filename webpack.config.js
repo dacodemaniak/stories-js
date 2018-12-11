@@ -8,7 +8,7 @@ var path = require('path');
          filename: 'main.bundle.js'
      },
      module: {
-         loaders: [
+         rules: [
              {
                  test: /\.js$/,
                  loader: 'babel-loader',
