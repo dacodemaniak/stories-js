@@ -4,7 +4,7 @@
  * @author Aélion
  * @version 1.0.0
  */
-class Toast {
+export class Toast {
     constructor(params) {
         if (!params.hasOwnProperty('background')) {
             // Paramètre de définition de la couleur de fond du toast
@@ -67,6 +67,14 @@ class Toast {
         // Affiche pendant un certain temps
         setTimeout(
             function() {
+                setTimeout(
+                    function() {
+                        toaster
+                            .addClass('fadeOutRightBig');
+                    },
+                    (this.duration / 2) * 1000
+                );
+
                 // Ici, quand on arrive au bout de l'intervalle de temps
                 toaster.remove();
             },
