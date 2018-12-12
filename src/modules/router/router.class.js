@@ -4,8 +4,17 @@
  * @author Aélion
  * @version 1.0.0
  */
+
 import { Route } from './route.class';
 
+import { LoginController } from './../../user/login/loginController.class';
+import { MyStories } from './../../stories/myStories.class';
+import { UserService } from './../../services/user-service.class';
+
+const controllers = {
+    LoginController,
+    MyStories
+}
 export class Router {
     constructor() {
         this.routes = new Map();
@@ -35,7 +44,35 @@ export class Router {
 
     getRoute() {
         const url = location.hash.slice(1) || '/';
-        console.log('Routes définies : ' + this.routes.size + ' [' + url + ']');
-        return this.routes.get(url) ? this.routes.get(url) : this.routes.get('/');
+        console.log('URL à charger [' + url + ']');
+
+        // On va essayer de chercher si dans les routes, on a quelque chose qui correspond
+        const route = this.routes.get(url);
+
+        // Instance d'un contrôleur vide
+        let controller = {};
+        
+        if (!route) {
+            // Aucun contrôleur associé à cette route
+        } else {
+            if (url === '/') {
+                // On vérifie l'utilisateur
+                const userService = new UserService();
+                if (userService.hasUser()) {
+                    // Il y a un utilisateur identifié... donc pas de login
+                    controller = new MyStories();
+                } else {
+                    // Pas encore d'utilisateur, on instancie LoginController
+                    controller = new LoginController();
+                }
+            } else {
+                // La route définie est autre chose...
+                console.log('Instancie : ' + route.getController());
+
+                controller = new controllers[route.getController()]();
+            }
+            // A la fin, on charge la vue
+            controller.getView();
+        }
     }
 }
