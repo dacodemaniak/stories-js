@@ -3,6 +3,8 @@
  * @desc Service de gestion des utilisateurs
  * @author Aélion
  * @version 1.0.0
+ * @version 1.0.1
+ *  Ajout de la persistence de l'utilisateur dans localStorage
  */
 export class User {
     constructor() {}
@@ -30,6 +32,13 @@ export class User {
     authenticate() {
         if (this.userName === 'jlaubert' && this.password === 'jla') {
             this.group = 'Administrateur';
+            // Ajout de l'utilisateur dans localStorage
+            const persistentUser = {
+                userName: this.userName,
+                group: this.group
+            };
+            localStorage.setItem('storiesUser', JSON.stringify(persistentUser));
+            
             return true;
         }
 

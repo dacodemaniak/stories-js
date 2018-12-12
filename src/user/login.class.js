@@ -71,6 +71,9 @@ export class Login {
                     // Instancie le menu...
                     const menu = new Menu();
                     menu.setUser(user);
+
+                    // On va essayer d'aller vers une autre page
+                    document.location.replace('#/mystories');
                 } else {
                     console.log('ko, t\'as pas le droit !');
                     // Efface les champs et désactive le bouton

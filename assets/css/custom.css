@@ -31,3 +31,17 @@
 #userMenuOptions.hidden {
     display: none;
 }
+
+/**
+* Style des icônes
+**/
+[class^="icon-"], [class*=" icon-"] {
+    font-size: 1.5em;
+}
+
+.icon-switch {
+    color: rgba(4, 136, 59, 0.8);
+}
+.icon-bin2 {
+    color: rgba(243, 9, 9, 0.8);
+}

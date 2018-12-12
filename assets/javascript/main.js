@@ -5,20 +5,60 @@
 import { Login } from './../../src/user/login.class';
 import { LoginController } from '../../src/user/login/loginController.class';
 import { MyStories } from '../../src/stories/myStories.class';
+import { UserService } from './../../src/services/user-service.class';
 
-let title = document.getElementById('main-title');
-title.innerHTML = 'Hello Javascript';
+$(window).on(
+    'hashchange',
+    function(event) {
+        const url = document.location.hash;
+        console.log('Nouvelle URL : ' + url);
+        if (url === '#/mystories') {
+            const authGuard = new UserService();
+            if (!authGuard.hasUser()) {
+                const controller = new LoginController();
+                controller.getView();
+            
+                // Créer une instance de Login
+                const login = new Login();
+            } else {
+                // Il y a déjà un utilisateur...
+                const controller = new MyStories();
+                controller.getView();
+            }
+        } else {
+            const controller = new LoginController();
+            controller.getView();
+        
+            // Créer une instance de Login
+            const login = new Login();            
+        }
+    }
+);
 
-
-
-/* @version 1.0.1 Passage par contrôleur
-const controller = new LoginController();
-controller.getView();
-
-// Créer une instance de Login
-const login = new Login();
-*/
-
-// Pour test, instanciation du contrôleur pour l'affichage des stories utilisateur
-const controller = new MyStories();
-controller.getView();
+$(window).on(
+    'load',
+    function(event) {
+        const url = document.location.hash;
+        console.log('Nouvelle URL : ' + url);
+        if (url === '#/mystories') {
+            const authGuard = new UserService();
+            if (!authGuard.hasUser()) {
+                const controller = new LoginController();
+                controller.getView();
+            
+                // Créer une instance de Login
+                const login = new Login();
+            } else {
+                // Il y a déjà un utilisateur...
+                const controller = new MyStories();
+                controller.getView();
+            }
+        } else {
+            const controller = new LoginController();
+            controller.getView();
+        
+            // Créer une instance de Login
+            const login = new Login();            
+        }
+    }    
+);
