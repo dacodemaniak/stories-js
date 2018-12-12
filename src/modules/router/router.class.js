@@ -10,10 +10,21 @@ export class Router {
     constructor() {
         this.routes = new Map();
 
-        // Définit les listeners de changement sur les routes
-        window.addEventListener(
+        let router = this;
+
+        // Définit le listener sur les routes
+        $(window).on(
             'hashchange',
-            this.getRoute
+            function(event) {
+                router.getRoute()
+            }
+        );
+
+        $(window).on(
+            'load',
+            function(event) {
+                router.getRoute()
+            }
         );
     }
 
@@ -24,7 +35,7 @@ export class Router {
 
     getRoute() {
         const url = location.hash.slice(1) || '/';
-        console.log('Routes définies : ' + this.routes.size);
+        console.log('Routes définies : ' + this.routes.size + ' [' + url + ']');
         return this.routes.get(url) ? this.routes.get(url) : this.routes.get('/');
     }
 }
