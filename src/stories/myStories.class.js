@@ -4,10 +4,18 @@
  * @author Aélion
  * @version 1.0.0
  */
+
+import { Menu } from './../menu/menu.class';
+import { UserService } from './../services/user-service.class';
+
 export class MyStories {
     constructor() {
         // Définit la vue pour ce contrôleur
         this.view = './src/stories/views/stories.view.html';
+
+        const userService = new UserService();
+        const menu = new Menu();
+        menu.setUser(userService.getUser());
     }
 
     /**

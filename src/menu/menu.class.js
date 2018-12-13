@@ -7,14 +7,14 @@
 export class Menu {
     constructor() {
         this.options = [
-            {title: 'Accueil', active: 'always'},
-            {title: 'Toutes les Stories', active: 'isAdmin'},
-            {title: 'Mes stories', active: 'always'},
+            {title: 'Accueil', active: 'always', path: '/'},
+            {title: 'Toutes les Stories', active: 'isAdmin', path: '/allstories'},
+            {title: 'Mes stories', active: 'always', path: '/mystories'},
             {title: 'Mon compte', active: 'always', options : [
-                {title: 'Mes préférences'},
-                {title: 'Changer de mot de passe'},
+                {title: 'Mes préférences', path: '/settings'},
+                {title: 'Changer de mot de passe', path: '/changepassword'},
                 {divider: true},
-                {title: 'Déconnexion'}
+                {title: 'Déconnexion', path: '/logout'}
             ]}
         ];
     }
@@ -62,7 +62,7 @@ export class Menu {
             item = $('<a>');
             item
                 .addClass('dropdown-item')
-                .attr('href', '#')
+                .attr('href', '#' + option.path)
                 .html(option.title);
             // <a class="dropdown-item" href="#">Action</a>
         } else {
