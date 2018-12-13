@@ -65,35 +65,37 @@ export class Login {
                 user.setUserName(login.val());
                 user.setPassword(password.val());
 
-                // Gère l'authentification...
-                if (user.authenticate() === true) {
-                    console.log('Oki, tu peux y aller');
-                    // Instancie le menu...
-                    const menu = new Menu();
-                    menu.setUser(user);
+                user.authenticate().then((aUser) => {
+                    // Gère l'authentification...
+                    if (aUser) {
+                        console.log('Oki, tu peux y aller');
+                        // Instancie le menu...
+                        const menu = new Menu();
+                        menu.setUser(user);
 
-                    // On va essayer d'aller vers une autre page
-                    document.location.replace('#/mystories');
-                } else {
-                    console.log('ko, t\'as pas le droit !');
-                    // Efface les champs et désactive le bouton
-                    login.val('');
-                    password.val('');
+                        // On va essayer d'aller vers une autre page
+                        document.location.replace('#/mystories');
+                    } else {
+                        console.log('ko, t\'as pas le droit !');
+                        // Efface les champs et désactive le bouton
+                        login.val('');
+                        password.val('');
 
-                    $('#btnLogin').attr('disabled', 'disabled');
+                        $('#btnLogin').attr('disabled', 'disabled');
 
-                    // On peut instancier un toast
-                    const toast = new Toast(
-                        {
-                            message: 'Ce login ou ce mot de passe ne correspond à aucun utilisateur',
-                            duration: 4,
-                            background: 'warning',
-                            width: 200,
-                            height: 100
-                        }
-                    );
-                    toast.toastIt();
-                }
+                        // On peut instancier un toast
+                        const toast = new Toast(
+                            {
+                                message: 'Ce login ou ce mot de passe ne correspond à aucun utilisateur',
+                                duration: 4,
+                                background: 'warning',
+                                width: 200,
+                                height: 100
+                            }
+                        );
+                        toast.toastIt();
+                    }
+                });
             }
         );
     }
