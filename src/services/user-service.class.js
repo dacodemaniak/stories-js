@@ -27,6 +27,11 @@ export class UserService {
         return false;
     }
 
+    removeUser() {
+        localStorage.removeItem('storiesUser');
+        this.user = {};
+    }
+
     /**
      * Retourne un objet Utilisateur à partir du localStorage
      */

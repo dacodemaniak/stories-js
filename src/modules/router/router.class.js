@@ -9,11 +9,14 @@ import { Route } from './route.class';
 
 import { LoginController } from './../../user/login/loginController.class';
 import { MyStories } from './../../stories/myStories.class';
+import { LogoutController } from '../../user/logout/logoutController.class';
 import { Error } from './../../errors/error.class';
 import { UserService } from './../../services/user-service.class';
 
+
 const controllers = {
     LoginController,
+    LogoutController,
     MyStories,
     Error
 }

@@ -54,6 +54,22 @@ export class Menu {
         dropdownBlock.removeClass('hidden');
     }
 
+    /**
+     * Nettoie le menu Utilisateur à la déconnexion
+     */
+    clear() {
+        // On définit les options du menu
+        const dropdownBlock = $('#userMenuOptions');
+
+        // Virer les options existantes
+        dropdownBlock.empty();
+
+        dropdownBlock.addClass('hidden');
+        
+        const userMenu = $('#userMenu');
+        userMenu.html('Utilisateur');
+    }
+
     _makeOption(option) {
         let item = null;
 
