@@ -69,7 +69,19 @@ export class Router {
                 // La route définie est autre chose...
                 console.log('Instancie : ' + route.getController());
 
-                controller = new controllers[route.getController()]();
+                const canActivate = route.getCanActivate();
+                if (canActivate) {
+                    // L'instanciation requiert une vérification
+                    if (canActivate.hasUser()) {
+                        controller = new controllers[route.getController()]();
+                    } else {
+                        // On ne peut pas, sans utilisateur identifié
+                        controller = new LoginController();
+                    }
+                } else {
+                    // Route activable sans contrôle
+                    controller = new controllers[route.getController()]();
+                }
             }
             // A la fin, on charge la vue
             controller.getView();
