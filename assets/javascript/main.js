@@ -8,10 +8,11 @@ import { UserService } from '../../src/services/user-service.class';
 
 // Instancie les routes de l'application
 const router = new Router();
+const userService = new UserService();
 router
     .add(
-        new Route('/', 'LoginController', UserService)
+        new Route('/', 'LoginController', userService)
     )
     .add(
-        new Route('/mystories', 'MyStories', UserService)
+        new Route('/mystories', 'MyStories', userService)
     );
