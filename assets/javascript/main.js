@@ -15,4 +15,7 @@ router
     )
     .add(
         new Route('/mystories', 'MyStories', userService)
+    )
+    .add(
+        new Route('/errors', 'Error')
     );
