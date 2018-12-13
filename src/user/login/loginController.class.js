@@ -4,10 +4,16 @@
  * @author Aélion
  * @version 1.0.0
  */
+
+ import { Login } from './../login.class';
+
 export class LoginController {
     constructor() {
         // Définit la vue pour ce contrôleur
         this.view = './src/user/login/views/loginform.view.html';
+
+        // Instancier la classe Login pour la gestion du formulaire
+        this.login = new Login();
     }
 
     /**
