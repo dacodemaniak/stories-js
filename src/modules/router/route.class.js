@@ -7,7 +7,7 @@
  *  Ajout de l'attribut canActivate, permettant de restreindre l'accès
  */
 export class Route {
-    constructor(path, controller, canActivate=null) {
+    constructor(path, controller, canActivate = null) {
         this.path = path;
         this.controller = controller;
         this.canActivate = canActivate;
