@@ -45,3 +45,27 @@
 .icon-bin2 {
     color: rgba(243, 9, 9, 0.8);
 }
+
+/**
+* Loader
+**/
+.loader.outer{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: transparent;
+    z-index: 100;
+}
+.loader.outer.hidden {
+    display: none;
+}
+
+.loader.outer div.inner img {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    display: block;
+    height: 32px;
+    width: 32px;
+    z-index: 99;
+}
