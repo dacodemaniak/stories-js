@@ -43,6 +43,7 @@ export class User {
                     const srvUser = datas[0];
 
                     if (srvUser) {
+                        user.id = srvUser.id;
                         user.userName = srvUser.username;
                         user.group = srvUser.libelle;
                         user.name = srvUser.lastname;
@@ -50,6 +51,7 @@ export class User {
                         user.civilite = srvUser.civilite;
         
                         const persistentUser = {
+                            id: user.id,
                             userName: user.userName,
                             group: user.group
                         };
